@@ -18,6 +18,7 @@ const api = {
     result['temperature'] = data['main']['temp'];
     result['weatherClass'] = data['weather'][0]['main'];
     result['windDirection'] = data['wind']['deg'];
+    result['windSpeed'] = data['wind']['speed']
     result['pressure'] = data['main']['pressure'];
     result['humidity'] = data['main']['humidity'];
     result['sunRise'] = data['sys']['sunrise'];
@@ -26,6 +27,16 @@ const api = {
 
     return result;
   },
+
+  weatherDataUnits() {
+    const measuremetUnit = {
+      'windDirection': 'degrees',
+      'pressure': 'hpa',
+      'humidity': '%',
+      'windSpeed': 'm/s'
+    };
+    return measuremetUnit;
+  }
 };
 
 export default api;
