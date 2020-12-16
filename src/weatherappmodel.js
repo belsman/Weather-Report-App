@@ -10,6 +10,22 @@ const api = {
         console.log(error);
     }
   },
+
+  parseData(data) {
+    const result = Object.create(null);
+
+    result['location'] = data['name'];
+    result['temperature'] = data['main']['temp'];
+    result['weatherClass'] = data['weather'][0]['main'];
+    result['windDirection'] = data['wind']['deg'];
+    result['pressure'] = data['main']['pressure'];
+    result['humidity'] = data['main']['humidity'];
+    result['sunRise'] = data['sys']['sunrise'];
+    result['sunSet'] = data['sys']['sunset'];
+    result['countryCode'] = data['sys']['country'];
+
+    return result;
+  },
 };
 
 export default api;

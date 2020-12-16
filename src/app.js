@@ -1,5 +1,8 @@
-import api from './weatherappmodel';
+import model from './weatherappmodel';
 
 export default () => {
-    api.load('calabar').then(result => console.log(result));
+    model.load('jos').then(result => {
+        const parseResult = model.parseData(result);
+        console.log(parseResult);
+    });
 };
