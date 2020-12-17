@@ -5,10 +5,26 @@ import './style.css';
 
 export default () => {
     const root = document.querySelector('div#content');
+
     root.innerHTML = nav();
 
     model.load('london').then(result => {
         const parseResult = model.parseData(result);
         root.insertAdjacentHTML('beforeend', weatherCard(parseResult));
+    });
+
+    const searchLocationForm = document.searchLocationForm;
+
+    searchLocationForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const weatherContainer = document.querySelector('div#weather-report-card');
+        weatherContainer.remove();
+        let searchTerm = e.target.elements['search-location'].value;
+        model.load(searchTerm)
+          .then( result => {
+            const parseResult = model.parseData(result);
+            
+            root.insertAdjacentHTML('beforeend', weatherCard(parseResult));
+          });
     });
 };
