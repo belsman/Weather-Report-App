@@ -4,56 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather APP</title>
-    <style>
-        #weather-report-card {
-           border: 1px solid red;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 <body>
+    <header>
+        <nav>
+            <h3>Weather App</h3>
+            <div>
+                <form action="" name="searchLocation">
+                    <input type="search" name="search-location" id="search-location" placeholder="" size="30" required >
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
     <div id="weather-report-card">
-        <div class="header">
+        <div class="weather-report-header">
             <h1>Jos, NG</h1>
-            <span class="loc-icon"><i class='fas fa-map-marker-alt'></i></span>
+            <span class="location-icon-wrapper"><i class='fas fa-map-marker-alt'></i></span>
         </div>
         <div class="weather-summary">
-            <p>
-                <span class="temperature">30 &#8451;</span>
-                <span class="weather-class">Few Clouds</span>
-            </p>
-            <span class="weather-class-icon"></span>
+            <div>
+                <span class="weather-summary-temperature">
+                    30 &#8451; <input type="checkbox" name="" id="temperature-unit-toggler">
+                </span><br>
+                <span class="weather-summary-class">Few Clouds</span>
+            </div>
+            <span class="weather-class-icon"><i class="fas fa-cloud"></i></span>
         </div>
         <ul>
             <li class="weather-data">
-                <span class="measuring-tool-icon"><i class="fas fa-thermometer-quarter"></i></span>
+                <span class="measuring-tool-icon">Pressure <i class="fas fa-thermometer-quarter"></i></span>
                 <span class="weather-data-value">1013 hpa</span>
-                <span class="weather-data-name">pressure</span>
             </li>
             <li class="weather-data">
-                <span class="measuring-tool-icon"><i class='fas fa-wind'></i></span>
+                <span class="measuring-tool-icon">Wind speed <i class='fas fa-wind'></i></span>
                 <span class="weather-data-value">5.2 m/s</span>
-                <span class="weather-data-name">wind speed</span>
             </li>
             <li class="weather-data">
-                <span class="measuring-tool-icon"><i class="far fa-compass"></i></span>
+                <span class="measuring-tool-icon">Wind direction <i class="far fa-compass"></i></span>
                 <span class="weather-data-value">1 degrees</span>
-                <span class="weather-data-name">wind direction</span>
             </li>
             <li class="weather-data">
-                <span class="measuring-tool-icon"><i class="fas fa-water"></i></span>
+                <span class="measuring-tool-icon">Humidity <i class="fas fa-water"></i></span>
                 <span class="weather-data-value">63 %</span>
-                <span class="weather-data-name">humidity</span>
             </li>
             <li class="weather-data">
-                <span class="measuring-tool-icon"><i class='far fa-clock'></i></span>
+                <span class="measuring-tool-icon">Sunrise <i class='far fa-clock'></i></span>
                 <span class="weather-data-value">5:55</span>
-                <span class="weather-data-name">sunrise</span>
             </li>
             <li class="weather-data">
-                <span class="measuring-tool-icon"><i class='far fa-clock'></i></span>
+                <span class="measuring-tool-icon">Sunset <i class='far fa-clock'></i></span>
                 <span class="weather-data-value">6:20</span>
-                <span class="weather-data-name">sunset</span>
             </li>
         </ul>
     </div>

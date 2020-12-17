@@ -14,28 +14,23 @@ const api = {
   parseData(data) {
     const result = Object.create(null);
 
-    result['location'] = data['name'];
+    result['searchLocation'] = data['name'];
     result['temperature'] = data['main']['temp'];
     result['weatherClass'] = data['weather'][0]['main'];
     result['windDirection'] = data['wind']['deg'];
     result['windSpeed'] = data['wind']['speed']
     result['pressure'] = data['main']['pressure'];
     result['humidity'] = data['main']['humidity'];
-    result['sunRise'] = data['sys']['sunrise'];
-    result['sunSet'] = data['sys']['sunset'];
+    result['sunRise'] = this.convertunixTime(data['sys']['sunrise']);
+    result['sunSet'] = this.convertunixTime(data['sys']['sunset']);
     result['countryCode'] = data['sys']['country'];
 
     return result;
   },
 
-  weatherDataUnits() {
-    const measuremetUnit = {
-      'windDirection': 'degrees',
-      'pressure': 'hpa',
-      'humidity': '%',
-      'windSpeed': 'm/s'
-    };
-    return measuremetUnit;
+  convertunixTime(count) {
+    const time = new Date(count * 1000);
+    return time.toLocaleTimeString();
   }
 };
 
