@@ -15,7 +15,7 @@ const api = {
     const result = Object.create(null);
 
     result['searchLocation'] = data['name'];
-    result['temperature'] = data['main']['temp'];
+    result['temperature'] = this.convertKelvinToCelcius(data['main']['temp']);
     result['weatherClass'] = data['weather'][0]['main'];
     result['windDirection'] = data['wind']['deg'];
     result['windSpeed'] = data['wind']['speed']
@@ -31,7 +31,11 @@ const api = {
   convertunixTime(count) {
     const time = new Date(count * 1000);
     return time.toLocaleTimeString();
-  }
+  },
+
+  convertKelvinToCelcius(kelvinUnit) {
+    return (kelvinUnit - 273.15).toFixed(1);
+  },
 };
 
 export default api;

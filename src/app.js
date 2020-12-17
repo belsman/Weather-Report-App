@@ -1,7 +1,7 @@
 import model from './models/weatherappmodel';
 import nav from './views/navigation';
 import weatherCard from './views/weather_report';
-
+import './style.css';
 
 export default () => {
     const root = document.querySelector('div#content');
