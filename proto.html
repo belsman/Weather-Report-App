@@ -3,62 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather APP</title>
-    <link rel="stylesheet" href="style.css">
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <style>
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider::before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            z-index: 1;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        .to-celcius,
+        .to-fahrenheit {
+            display: inline-block;
+            position: absolute;
+            top: 20%;
+        }
+
+        .to-celcius {
+            left: 10%;
+        }
+
+        .to-fahrenheit {
+            right: 10%;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <h3>Weather App</h3>
-            <div>
-                <form action="" name="searchLocation">
-                    <input type="search" name="search-location" id="search-location" placeholder="" size="30" required >
-                    <button type="submit">Search</button>
-                </form>
-            </div>
-        </nav>
-    </header>
-    <div id="weather-report-card">
-        <div class="weather-report-header">
-            <h1>Jos, NG</h1>
-            <span class="location-icon-wrapper"><i class='fas fa-map-marker-alt'></i></span>
-        </div>
-        <div class="weather-summary">
-            <div>
-                <span class="weather-summary-temperature">
-                    30 &#8451; <input type="checkbox" name="" id="temperature-unit-toggler">
-                </span><br>
-                <span class="weather-summary-class">Few Clouds</span>
-            </div>
-            <span class="weather-class-icon"><i class="fas fa-cloud"></i></span>
-        </div>
-        <ul>
-            <li class="weather-data">
-                <span class="measuring-tool-icon">Pressure <i class="fas fa-thermometer-quarter"></i></span>
-                <span class="weather-data-value">1013 hpa</span>
-            </li>
-            <li class="weather-data">
-                <span class="measuring-tool-icon">Wind speed <i class='fas fa-wind'></i></span>
-                <span class="weather-data-value">5.2 m/s</span>
-            </li>
-            <li class="weather-data">
-                <span class="measuring-tool-icon">Wind direction <i class="far fa-compass"></i></span>
-                <span class="weather-data-value">1 degrees</span>
-            </li>
-            <li class="weather-data">
-                <span class="measuring-tool-icon">Humidity <i class="fas fa-water"></i></span>
-                <span class="weather-data-value">63 %</span>
-            </li>
-            <li class="weather-data">
-                <span class="measuring-tool-icon">Sunrise <i class='far fa-clock'></i></span>
-                <span class="weather-data-value">5:55</span>
-            </li>
-            <li class="weather-data">
-                <span class="measuring-tool-icon">Sunset <i class='far fa-clock'></i></span>
-                <span class="weather-data-value">6:20</span>
-            </li>
-        </ul>
+    <div id="sample">
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round">
+                <span class="to-celcius">&#8451</span>
+                <span class="to-fahrenheit">&#8457</span>
+            </span>
+        </label>
     </div>
 </body>
 </html>

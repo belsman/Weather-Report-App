@@ -11,11 +11,23 @@ export default (data) => {
     <div class="weather-summary">
         <div>
             <span class="weather-summary-temperature">
-                <span id="temperature-value">${temperature}</span> &#8451; <input type="checkbox" name="" id="temperature-unit-toggler">
-            </span><br>
+                <span id="temperature-value">
+                  ${temperature}
+                </span>
+                <label class="switch">
+                    <input type="checkbox" name="temperature-unit" id="temperature-unit-toggler" data-toggle-state="1" >
+                    <span class="slider round">
+                        <span class="to-celcius">&#8451</span>
+                        <span class="to-fahrenheit">&#8457</span>
+                    </span>
+                </label> 
+            </span>
+        </div>
+        <div>
+            <span class="weather-class-icon"><i class="fas fa-cloud"></i></span><br>
             <span class="weather-summary-class">${weatherClass}</span>
         </div>
-        <span class="weather-class-icon"><i class="fas fa-cloud"></i></span>
+        
     </div>
     <ul>
         <li class="weather-data">

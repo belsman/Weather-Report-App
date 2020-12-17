@@ -1,4 +1,5 @@
 const api = {
+  temperature: null,
   async load(location) {
     const key = '7408c907ee2383a4a8b85544374aab3d';
     const endpoint = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}`;
@@ -25,6 +26,7 @@ const api = {
     result['sunSet'] = this.convertunixTime(data['sys']['sunset']);
     result['countryCode'] = data['sys']['country'];
 
+    this.temperature = result['temperature'];
     return result;
   },
 
@@ -36,6 +38,13 @@ const api = {
   convertKelvinToCelcius(kelvinUnit) {
     return (kelvinUnit - 273.15).toFixed(1);
   },
+
+  celciusToFahrenheit(celciusValue) {
+    return ((celciusValue * 9/5) + 32).toFixed(1);
+  },
+  fahrenheitToCelcius(fahrenheitValue) {
+    return ((fahrenheitValue - 32) * 5/9).toFixed(1);
+  }
 };
 
 export default api;
