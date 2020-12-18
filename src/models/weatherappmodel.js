@@ -1,32 +1,26 @@
 const api = {
-  temperature: null,
   async load(location) {
     const key = '7408c907ee2383a4a8b85544374aab3d';
     const endpoint = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}`;
 
-    try {
-        const response = await fetch(endpoint, {mode: 'cors'});
-        return response.json();
-    } catch (error) {
-        console.log(error);
-    }
+    const response = await fetch(endpoint, { mode: 'cors' });
+    return response.json();
   },
 
   parseData(data) {
     const result = Object.create(null);
 
-    result['searchLocation'] = data['name'];
-    result['temperature'] = this.convertKelvinToCelcius(data['main']['temp']);
-    result['weatherClass'] = data['weather'][0]['main'];
-    result['windDirection'] = data['wind']['deg'];
-    result['windSpeed'] = data['wind']['speed']
-    result['pressure'] = data['main']['pressure'];
-    result['humidity'] = data['main']['humidity'];
-    result['sunRise'] = this.convertunixTime(data['sys']['sunrise']);
-    result['sunSet'] = this.convertunixTime(data['sys']['sunset']);
-    result['countryCode'] = data['sys']['country'];
+    result.searchLocation = data.name;
+    result.temperature = this.convertKelvinToCelcius(data.main.temp);
+    result.weatherClass = data.weather[0].main;
+    result.windDirection = data.wind.deg;
+    result.windSpeed = data.wind.speed;
+    result.pressure = data.main.pressure;
+    result.humidity = data.main.humidity;
+    result.sunRise = this.convertunixTime(data.sys.sunrise);
+    result.sunSet = this.convertunixTime(data.sys.sunset);
+    result.countryCode = data.sys.country;
 
-    this.temperature = result['temperature'];
     return result;
   },
 
@@ -40,11 +34,14 @@ const api = {
   },
 
   celciusToFahrenheit(celciusValue) {
-    return ((celciusValue * 9/5) + 32).toFixed(1);
+    const result = celciusValue * 1.8 + 32;
+    return result.toFixed(1);
   },
+
   fahrenheitToCelcius(fahrenheitValue) {
-    return ((fahrenheitValue - 32) * 5/9).toFixed(1);
-  }
+    const result = (fahrenheitValue - 32) / 1.8;
+    return result.toFixed(1);
+  },
 };
 
 export default api;

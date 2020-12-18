@@ -1,1 +1,1 @@
-export default () => `<div class="loader"></div>`;
+export default () => '<div class="loader"></div>';

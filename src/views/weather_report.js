@@ -1,9 +1,9 @@
-export default (data) => {
-    const { countryCode, temperature, weatherClass, 
-        pressure, windSpeed, windDirection, humidity, 
-        sunRise, sunSet, searchLocation } = data;
-        
-    let template = `<div id="weather-report-card">
+export default ({
+  countryCode, temperature, weatherClass,
+  pressure, windSpeed, windDirection, humidity,
+  sunRise, sunSet, searchLocation,
+}) => {
+  const template = `<div id="weather-report-card">
     <div class="weather-report-header">
         <h1>${searchLocation}, ${countryCode}</h1>
         <span class="location-icon-wrapper"><i class='fas fa-map-marker-alt'></i></span>
@@ -57,5 +57,5 @@ export default (data) => {
     </ul>
     </div>`;
 
-    return template;
+  return template;
 };
