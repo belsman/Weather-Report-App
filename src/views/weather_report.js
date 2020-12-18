@@ -1,7 +1,7 @@
 export default ({
   countryCode, temperature, weatherClass,
   pressure, windSpeed, windDirection, humidity,
-  sunRise, sunSet, searchLocation,
+  sunRise, sunSet, searchLocation, weatherClassIcon,
 }) => {
   const template = `<div id="weather-report-card">
     <div class="weather-report-header">
@@ -24,7 +24,7 @@ export default ({
             </span>
         </div>
         <div>
-            <span class="weather-class-icon"><i class="fas fa-cloud"></i></span><br>
+            <span class="weather-class-icon"><i class="${weatherClassIcon}"></i></span><br>
             <span class="weather-summary-class">${weatherClass}</span>
         </div>
         

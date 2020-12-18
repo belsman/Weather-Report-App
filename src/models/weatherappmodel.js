@@ -1,4 +1,17 @@
 const api = {
+  weatherConditions: {
+    clouds: 'fas fa-cloud',
+    rain: 'fas fa-cloud-showers-heavy',
+    haze: 'fas fa-smog',
+    clear: 'far fa-sun',
+    snow: 'far fa-snowflake',
+    dust: 'fas fa-bolt',
+  },
+
+  getWeatherIcon(condition) {
+    return this.weatherConditions[condition.toLowerCase()];
+  },
+
   async load(location) {
     const key = '7408c907ee2383a4a8b85544374aab3d';
     const endpoint = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}`;
@@ -20,6 +33,7 @@ const api = {
     result.sunRise = this.convertunixTime(data.sys.sunrise);
     result.sunSet = this.convertunixTime(data.sys.sunset);
     result.countryCode = data.sys.country;
+    result.weatherClassIcon = this.getWeatherIcon(result.weatherClass);
 
     return result;
   },
@@ -42,6 +56,7 @@ const api = {
     const result = (fahrenheitValue - 32) / 1.8;
     return result.toFixed(1);
   },
+
 };
 
 export default api;

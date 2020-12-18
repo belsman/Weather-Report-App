@@ -12,7 +12,7 @@
     "server": "webpack-dev-server --open",
     "stylelint": " npx stylelint \"**/*.{css,scss}\"",
     "eslint": "eslint .",
-    "fix": "stylelint --fix \"**/*.scss\" && eslint . --fix"
+    "fix": "stylelint \"**/*.css\" --fix && eslint . --fix"
   },
   "keywords": [],
   "author": "",
