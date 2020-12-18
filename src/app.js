@@ -30,7 +30,8 @@ export default () => {
 
     const toggleCelciusToFahrenheitBtn = document.querySelector('input[type="checkbox"]');
     toggleCelciusToFahrenheitBtn.addEventListener('click', togglerFunctionHandler);
-  });
+  })
+    .catch(e => e);
 
   const { searchLocationForm } = document;
   searchLocationForm.addEventListener('submit', (e) => {

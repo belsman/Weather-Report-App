@@ -8,7 +8,7 @@
 
 ## Live demo
 
-🔗 [visit the page](https://stupefied-shannon-6eeba9.netlify.app/)
+🔗 [visit the page](https://confident-morse-0fa377.netlify.app/)
 
 ## Built With
 
